@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="classList.csv" />
+    <None Include="master.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data.hpp" />
+    <ClInclude Include="list.hpp" />
+    <ClInclude Include="menu.hpp" />
+    <ClInclude Include="node.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
