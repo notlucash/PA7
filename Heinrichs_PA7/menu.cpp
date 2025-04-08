@@ -235,8 +235,19 @@ ofstream& operator<<(ofstream& output, List<Data>& rhs)
 	{
 		// write data from list to the file in the original format
 		output << pCur->getData()->getRecord() << ',' << pCur->getData()->getId() << ',' << '\"' << pCur->getData()->getName() << '\"' << ',' << pCur->getData()->getEmail() <<
-			',' << pCur->getData()->getUnits() << ',' << pCur->getData()->getProgram() << ',' << pCur->getData()->getLevel() << endl;
-		pCur = pCur->getNextPtr();
+			',' << pCur->getData()->getUnits() << ',' << pCur->getData()->getProgram() << ',' << pCur->getData()->getLevel() << ',' << pCur->getData()->getAbsences();
+
+		stack<string> temp = pCur->getData()->getDateAbsences(); // make a temp stack to see all absences
+		for (int i = 0; i < pCur->getData()->getAbsences(); ++i) // for the amount of absences
+		{
+			output << ',' << temp.top(); // print out top date
+			temp.pop(); // pop to see next date
+			
+		}
+
+		output << endl; // print newline
+
+		pCur = pCur->getNextPtr(); // go to the next node
 	}
 
 	return output;
